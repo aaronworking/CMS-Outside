@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-app-bg: var(--app-bg);
+  --color-app-surface: var(--app-surface);
+  --color-app-input: var(--app-input);
+  --color-app-header: var(--app-header);
+  --color-app-border: var(--app-border);
+  --color-app-text-base: var(--app-text-base);
+  --color-app-text-muted: var(--app-text-muted);
+}
+
+@layer base {
+  :root {
+    --brand-primary: #00509d; /* GrandTech Official Blue */
+    --brand-secondary: #f37021; /* GrandTech Official Orange */
+    --brand-primary-hover: #003d7a;
+    --app-bg: #ffffff;
+    --app-surface: rgba(255, 255, 255, 0.95);
+    --app-input: #ffffff;
+    --app-header: rgba(255, 255, 255, 0.8);
+    --app-border: #eef2f6;
+    --app-text-base: #1a202c;
+    --app-text-muted: #718096;
+  }
+
+  body {
+    @apply bg-white text-app-text-base antialiased font-sans transition-all duration-700;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(0, 80, 157, 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+}
+
+@layer components {
+  .input-dark {
+    @apply w-full bg-white border border-slate-200 rounded-lg p-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary transition-all placeholder:text-slate-400 font-sans text-sm shadow-sm;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-primary hover:bg-brand-primary-hover text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg shadow-brand-primary/15 hover:shadow-brand-primary/25 disabled:opacity-50 disabled:cursor-not-allowed tracking-wider text-sm active:scale-95;
+  }
+  
+  .card-dark {
+    @apply bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/40 backdrop-blur-xl relative overflow-hidden;
+  }
+
+  .text-primary {
+    @apply text-app-text-base;
+  }
+
+  .text-secondary {
+    @apply text-app-text-muted;
+  }
+
+  /* Cyber Decorative Elements */
+  .tech-corner {
+    @apply absolute w-1.5 h-1.5 bg-brand-primary;
+  }
+}
